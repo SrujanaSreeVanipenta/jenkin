@@ -1,0 +1,12 @@
+git config --global --unset username
+git config --local --unset user.email
+git config --global username "srujana"
+git config --global user.email "srujanavanipenta12@gmail.com
+git add src/
+git commit -m "first"
+git add pom.xml
+git commit -m "second"
+git branch -M main
+git remote add origin https://github.com/SrujanaSreeVanipenta/jenkin.git
+git push -u origin main
+  
