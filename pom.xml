@@ -1,16 +1,71 @@
+result.java
+package p1;
 
+public class Result {
 
- <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>program1.com</groupId>
-  <artifactId>program1</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <dependency>
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>7.5.1</version>
-        <scope>test</scope>
-    </dependency>
-  </dependencies>
+    public static String display(int m) {
+
+        if (m < 0 || m > 100)
+            return "invalid";
+
+        else if (m < 40)
+            return "fail";
+
+        else
+            return "pass";
+    }
+
+    public static void main(String[] args) {
+        System.out.println(display(55));
+    }
+}
+
+resulttest.java
+package pgm1;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class ResultTest {
+
+    @Test
+    public void testPass() {
+        Assert.assertEquals(Result.display(55), "pass");
+    }
+
+    @Test
+    public void testFail() {
+        Assert.assertEquals(Result.display(35), "fail");
+    }
+
+    @Test
+    public void testInvalid() {
+        Assert.assertEquals(Result.display(-5), "invalid");
+    }
+}
+
+         
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>program1.com</groupId>
+    <artifactId>program1</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
 </project>
